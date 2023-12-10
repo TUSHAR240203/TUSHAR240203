@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Expense Tracker</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Lato&display=swap'); 
+    body {
+      background-color: skyblue;
+      font-family: Arial, sans-serif;
+    }
+    
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    
+    .expense-form {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .expense-form label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    
+    .expense-form input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    
+    .expense-form button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-top: 20px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    
+    .expense-report {
+      max-width: 400px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .expense-report h2 {
+      margin-bottom: 10px;
+      color: #333;
+    }
+    
+    .expense-report p {
+      margin-bottom: 5px;
+    }
+    
+    .expense-report img {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>Expense Tracker</h1>
+  
+  <div class="expense-form">
+ <label for="food">Food:</label>
+<input type="text" id="food">
+<img src="https://womensfitness.co.uk/wp-content/uploads/sites/3/2022/11/Shutterstock_1675475479.jpg?w=900" alt="Food Image" width="300" height="200">
+
+    
+    <label for="transportation">Transportation:</label>
+    <input type="text" id="transportation">
+    <img src="https://philburn.com/wp-content/uploads/2017/03/Philburn_16.jpg" alt="Transportation Image"  width="300" height="200">>
+    
+    <label for="entertainment">Entertainment:</label>
+    <input type="text" id="entertainment">
+    <img src="https://www.forbesindia.com/media/images/2019/Oct/img_122803_media_and_entertainment.jpg "alt="Entertainment Image" width="300" height="200">
+    
+    <label for="shopping">Shopping:</label>
+    <input type="text" id="shopping">
+    <img src="https://img.freepik.com/free-vector/seasonal-sale-discounts-presents-purchase-visiting-boutiques-luxury-shopping-price-reduction-promotional-coupons-special-holiday-offers-vector-isolated-concept-metaphor-illustration_335657-2766.jpg?size=338&ext=jpg&ga=GA1.1.1826414947.1699315200&semt=ais" alt="Shopping Image"  width="300" height="200">
+    
+    <label for="bills">Bills:</label>
+    <input type="text" id="bills">
+    <img src="https://assetsblog.bsbportal.com/wp-content/uploads/2022/09/water-bill-1300x800.jpg" alt="Bills Image" width="300" height="200">
+    
+    <button onclick="generateReport()">Generate Report</button>
+  </div>
+  
+  <div class="expense-report" id="expenseReport">
+    <h2>Expense Report</h2>
+    <p id="foodExpense"></p>
+    <p id="transportationExpense"></p>
+    <p id="entertainmentExpense"></p>
+    <p id="shoppingExpense"></p>
+    <p id="billsExpense"></p>
+    <p id="totalExpense"></p>
+  </div>
+  
+  <script>
+    function generateReport() {
+      var foodExpense = document.getElementById("food").value;
+      var transportationExpense = document.getElementById("transportation").value;
+      var entertainmentExpense = document.getElementById("entertainment").value;
+      var shoppingExpense = document.getElementById("shopping").value;
+      var billsExpense = document.getElementById("bills").value;
+      
+      var totalExpense = parseFloat(foodExpense) + parseFloat(transportationExpense) + parseFloat(entertainmentExpense) + parseFloat(shoppingExpense) + parseFloat(billsExpense);
+      
+      document.getElementById("foodExpense").innerHTML = "Food Expense: $" + foodExpense;
+      document.getElementById("transportationExpense").innerHTML = "Transportation Expense: $" + transportationExpense;
+      document.getElementById("entertainmentExpense").innerHTML = "Entertainment Expense: $" + entertainmentExpense;
+      document.getElementById("shoppingExpense").innerHTML = "Shopping Expense: $" + shoppingExpense;
+      document.getElementById("billsExpense").innerHTML = "Bills Expense: $" + billsExpense;
+      document.getElementById("totalExpense").innerHTML = "Total Expense: $" + totalExpense.toFixed(2);
+    }
+  </script>
+</body>
+</html>
